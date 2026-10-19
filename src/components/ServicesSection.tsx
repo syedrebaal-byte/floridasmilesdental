@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SERVICES, Service } from '../data/clinicData';
 import { ArrowRight, CheckCircle2, Sparkles, Clock, ShieldCheck, X, Calendar } from 'lucide-react';
+import { dentalTechImg, cosmeticSmileImg } from '../assets/images';
 
 interface ServicesSectionProps {
   onSelectServiceForBooking: (serviceId: string) => void;
@@ -65,7 +66,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col md:flex-row">
               <div className="md:w-1/2 relative min-h-[240px]">
                 <img
-                  src="/src/assets/images/dental_tech_implants_1792424265029.jpg"
+                  src={dentalTechImg}
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/images/dental_tech_implants.jpg';
+                  }}
                   alt="Modern 3D digital dental scanner and implant restoration display"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
@@ -105,7 +109,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col md:flex-row">
               <div className="md:w-1/2 relative min-h-[240px]">
                 <img
-                  src="/src/assets/images/cosmetic_smile_portrait_1792424262890.jpg"
+                  src={cosmeticSmileImg}
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/images/cosmetic_smile_portrait.jpg';
+                  }}
                   alt="Confident woman with radiant healthy smile"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"

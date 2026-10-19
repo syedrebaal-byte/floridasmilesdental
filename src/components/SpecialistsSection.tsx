@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { DOCTORS, Doctor } from '../data/clinicData';
 import { MapPin, Award, CheckCircle2, Calendar, Phone } from 'lucide-react';
+import { doctorPatientImg } from '../assets/images';
 
 interface SpecialistsSectionProps {
   onSelectDoctorForBooking: (doctorName: string) => void;
@@ -56,7 +57,10 @@ export const SpecialistsSection: React.FC<SpecialistsSectionProps> = ({ onSelect
         <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm mb-12 grid grid-cols-1 lg:grid-cols-12 items-center">
           <div className="lg:col-span-5 h-[280px] lg:h-full relative">
             <img
-              src="/src/assets/images/doctor_patient_care_1792424264073.jpg"
+              src={doctorPatientImg}
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = '/images/doctor_patient_care.jpg';
+              }}
               alt="Florida Smiles Dental clinician reviewing digital treatment plan with patient"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"

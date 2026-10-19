@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, Phone, ArrowUpRight, ShieldCheck, MapPin, Sparkles } from 'lucide-react';
+import { heroClinicImg } from '../assets/images';
 
 interface HeroProps {
   onOpenBooking: () => void;
@@ -82,7 +83,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onOpenAssessment }) =
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200/80 bg-slate-100 aspect-[4/3] lg:aspect-[5/4] group">
               <img
-                src="/src/assets/images/hero_clinic_interior_1792424263178.jpg"
+                src={heroClinicImg}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/images/hero_clinic_interior.jpg';
+                }}
                 alt="Florida Smiles Dental state-of-the-art coastal clinic in Fort Lauderdale with panoramic views and modern clinical suite"
                 className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700"
                 referrerPolicy="no-referrer"
